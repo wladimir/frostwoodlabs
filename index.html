@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frostwood Labs - Contact and company verification information. Based in Sheridan, WY.">
+    <meta name="keywords" content="Frostwood Labs, Sheridan WY, contact, company verification">
+    <meta name="author" content="Frostwood Labs">
+    <title>Frostwood Labs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --frostwood-navy: #394B5F;
+            --frostwood-text: #394B5F;
+            --frostwood-light: rgba(57, 75, 95, 0.1);
+            --background-color: #ffffff;
+            --text-color: #394B5F;
+            --navy-color: #394B5F;
+        }
+
+        [data-theme="dark"] {
+            --frostwood-navy: #A6B4C5;
+            --frostwood-text: #E6E9ED;
+            --frostwood-light: rgba(230, 233, 237, 0.1);
+            --background-color: #1A1F24;
+            --text-color: #E6E9ED;
+            --navy-color: #A6B4C5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background-color: var(--frostwood-light);
+            border-radius: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider:before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: var(--frostwood-navy);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        input:checked + .slider {
+            background-color: var(--frostwood-light);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .theme-icon {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 80px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--frostwood-navy);
+            letter-spacing: -0.025em;
+        }
+
+        section {
+            margin-bottom: 64px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--frostwood-navy);
+            margin-bottom: 28px;
+            letter-spacing: -0.025em;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--frostwood-text);
+        }
+
+        .icon {
+            font-size: 1rem;
+            color: var(--frostwood-text);
+            width: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: var(--frostwood-text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--frostwood-navy);
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch">
+        <span class="theme-icon">🌞</span>
+        <input type="checkbox" id="theme-toggle">
+        <label for="theme-toggle" class="slider"></label>
+        <span class="theme-icon">🌙</span>
+    </div>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">Frostwood Labs</h1>
+        </header>
+
+        <section aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact Information</h2>
+            <p>
+                <span class="icon">📧</span>
+                <a href="mailto:hello@frostwoodlabs.com">hello@frostwoodlabs.com</a>
+            </p>
+            <p>
+                <span class="icon">📞</span>
+                <a href="tel:+13074522403">+1 (307) 452-2403</a>
+            </p>
+            <p>
+                <span class="icon">📍</span>
+                75 E 3rd St, Ste 7, Sheridan, WY 82801
+            </p>
+        </section>
+
+        <section aria-labelledby="verification-heading">
+            <h2 id="verification-heading">Company Verification</h2>
+            <p>
+                <span class="icon">📜</span>
+                D-U-N-S Number: pending
+            </p>
+            <p>
+                <span class="icon">🏢</span>
+                <a href="https://wyobiz.wyo.gov/Business/FilingDetails.aspx?eFNum=196038014227126004245172030113091158227120026048" target="_blank">Wyoming Business Registry</a>
+            </p>
+        </section>
+    </div>
+
+    <!-- Inline JavaScript for Interactivity -->
+    <script>
+        console.log("Frostwood Labs website loaded successfully.");
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Set initial theme based on system preference
+        if (prefersDarkScheme.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.checked = true;
+        }
+
+        // Handle theme toggle
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
