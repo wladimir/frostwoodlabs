@@ -42,21 +42,26 @@ const Navbar: React.FC = () => {
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
-                    ${scrolled ? 'text-gray-700 hover:text-blue-400' : 'text-gray-700 hover:text-blue-400'}`}
-                >
-                  {item.label}
-                </Link>
-              ))}
               <Link
-                to="/#contact"
-                className="ml-4 px-4 py-2 rounded-md text-sm font-medium bg-blue-400 text-white hover:bg-blue-500 transition-colors"
+                to="/"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
+                  ${scrolled ? 'text-gray-700 hover:text-blue-400' : 'text-gray-700 hover:text-blue-400'}`}
               >
-                Get Started
+                Home
+              </Link>
+              <Link
+                to="/terms"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
+                  ${scrolled ? 'text-gray-700 hover:text-blue-400' : 'text-gray-700 hover:text-blue-400'}`}
+              >
+                Terms
+              </Link>
+              <Link
+                to="/privacy"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
+                  ${scrolled ? 'text-gray-700 hover:text-blue-400' : 'text-gray-700 hover:text-blue-400'}`}
+              >
+                Privacy
               </Link>
             </div>
           </div>

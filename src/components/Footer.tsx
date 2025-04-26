@@ -3,56 +3,70 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="text-xl font-bold">Frostwood Labs</Link>
-            <p className="mt-2 text-gray-300 text-sm">
-              Specializing in custom software development, helping businesses transform their digital presence with innovative solutions.
+    <footer className="bg-gray-800 text-white">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Company Info */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Frostwood Labs</h3>
+            <p className="text-gray-400 mb-4">
+              Custom software development and digital solutions for businesses.
+            </p>
+            <div className="space-y-2">
+              <p className="text-gray-400">
+                <strong>Email:</strong> [Your Business Email]
+              </p>
+              <p className="text-gray-400">
+                <strong>Phone:</strong> [Your Business Phone]
+              </p>
+              <p className="text-gray-400">
+                <strong>Address:</strong> [Your Business Address]
+              </p>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/" className="text-gray-400 hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-gray-400 hover:text-white">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-gray-400 hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Legal</h3>
+            <p className="text-gray-400 mb-4">
+              Frostwood Labs LLC is a registered business entity in Wyoming.
+            </p>
+            <p className="text-gray-400 mb-4">
+              <a 
+                href="https://wyobiz.wyo.gov/Business/FilingDetails.aspx?eFNum=196038014227126004245172030113091158227120026048" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300"
+              >
+                View our Wyoming business registration
+              </a>
+            </p>
+            <p className="text-gray-400">
+              © {new Date().getFullYear()} Frostwood Labs LLC. All rights reserved.
             </p>
           </div>
-          
-          <div>
-            <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">Services</h3>
-            <ul className="mt-4 space-y-2">
-              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Custom Software</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Mobile Apps</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Cloud Solutions</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Web Development</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">Company</h3>
-            <ul className="mt-4 space-y-2">
-              <li><Link to="/terms" className="text-gray-300 hover:text-blue-400 text-sm">Terms & Conditions</Link></li>
-              <li><Link to="/privacy" className="text-gray-300 hover:text-blue-400 text-sm">Privacy Policy</Link></li>
-              <li><a href="/#contact" className="text-gray-300 hover:text-blue-400 text-sm">Contact Us</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">Contact</h3>
-            <ul className="mt-4 space-y-2">
-              <li className="flex items-start">
-                <span className="text-gray-300 text-sm">📧</span>
-                <a href="mailto:hello@frostwoodlabs.com" className="ml-2 text-gray-300 hover:text-white text-sm">hello@frostwoodlabs.com</a>
-              </li>
-              <li className="flex items-start">
-                <span className="text-gray-300 text-sm">📞</span>
-                <a href="tel:+13074522403" className="ml-2 text-gray-300 hover:text-white text-sm">+1 (307) 452-2403</a>
-              </li>
-              <li className="flex items-start">
-                <span className="text-gray-300 text-sm">📍</span>
-                <span className="ml-2 text-gray-300 text-sm">75 E 3rd St, Ste 7, Sheridan, WY 82801</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="mt-8 pt-8 border-t border-gray-700">
-          <p className="text-gray-300 text-sm">© 2025 Frostwood Labs. All rights reserved.</p>
         </div>
       </div>
     </footer>
