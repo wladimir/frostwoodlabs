@@ -14,13 +14,13 @@ const Footer: React.FC = () => {
             </p>
             <div className="space-y-2">
               <p className="text-gray-400">
-                <strong>Email:</strong> [Your Business Email]
+                <strong>Email:</strong> <a href="mailto:hello@frostwoodlabs.com" className="hover:underline text-blue-300">hello@frostwoodlabs.com</a>
               </p>
               <p className="text-gray-400">
-                <strong>Phone:</strong> [Your Business Phone]
+                <strong>Phone:</strong> <a href="tel:+13074522403" className="hover:underline text-blue-300">+1 (307) 452-2403</a>
               </p>
               <p className="text-gray-400">
-                <strong>Address:</strong> [Your Business Address]
+                <strong>Address:</strong> <span role="img" aria-label="pin">📍</span> 75 E 3rd St, Ste 7, Sheridan, WY 82801
               </p>
             </div>
           </div>
