@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
             <div className="text-center lg:text-left">
               <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900">
                 <span className="block">Transform Your</span>
-                <span className="block mt-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <span className="block mt-2 bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
                   Digital Presence
                 </span>
               </h1>
@@ -20,14 +20,14 @@ const Hero: React.FC = () => {
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
                   href="#contact"
-                  className="w-full sm:w-auto px-8 py-4 text-lg font-medium rounded-lg text-white bg-blue-700 hover:bg-blue-800 transition-colors flex items-center justify-center"
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-medium rounded-lg text-white bg-blue-400 hover:bg-blue-500 transition-colors flex items-center justify-center"
                 >
                   Start Your Project
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
                 <a
                   href="#services"
-                  className="w-full sm:w-auto px-8 py-4 text-lg font-medium rounded-lg text-blue-700 bg-blue-50 hover:bg-blue-100 transition-colors flex items-center justify-center"
+                  className="w-full sm:w-auto px-8 py-4 text-lg font-medium rounded-lg text-blue-400 bg-blue-50 hover:bg-blue-100 transition-colors flex items-center justify-center"
                 >
                   Explore Services
                 </a>

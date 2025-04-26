@@ -39,19 +39,19 @@ const ServiceCard: React.FC<Service> = ({ title, description, icon }) => {
   const getIcon = () => {
     switch (icon) {
       case 'Code':
-        return <Code className="h-8 w-8 text-blue-600" />;
+        return <Code className="h-8 w-8 text-blue-400" />;
       case 'Smartphone':
-        return <Smartphone className="h-8 w-8 text-blue-600" />;
+        return <Smartphone className="h-8 w-8 text-blue-400" />;
       case 'Cloud':
-        return <Cloud className="h-8 w-8 text-blue-600" />;
+        return <Cloud className="h-8 w-8 text-blue-400" />;
       case 'Globe':
-        return <Globe className="h-8 w-8 text-blue-600" />;
+        return <Globe className="h-8 w-8 text-blue-400" />;
       case 'Link':
-        return <Link className="h-8 w-8 text-blue-600" />;
+        return <Link className="h-8 w-8 text-blue-400" />;
       case 'MessageSquare':
-        return <MessageSquare className="h-8 w-8 text-blue-600" />;
+        return <MessageSquare className="h-8 w-8 text-blue-400" />;
       default:
-        return <Code className="h-8 w-8 text-blue-600" />;
+        return <Code className="h-8 w-8 text-blue-400" />;
     }
   };
 

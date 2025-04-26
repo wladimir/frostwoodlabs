@@ -116,7 +116,7 @@ const Contact: React.FC = () => {
               
               <button
                 type="submit"
-                className="w-full px-8 py-4 text-lg font-medium rounded-lg text-white bg-blue-700 hover:bg-blue-800 transition-colors flex items-center justify-center"
+                className="w-full px-8 py-4 text-lg font-medium rounded-lg text-white bg-blue-400 hover:bg-blue-500 transition-colors flex items-center justify-center"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Sending...' : (
@@ -134,27 +134,27 @@ const Contact: React.FC = () => {
             
             <div className="space-y-8">
               <div className="flex items-start">
-                <Mail className="h-8 w-8 text-blue-600 mt-1" />
+                <Mail className="h-8 w-8 text-blue-400 mt-1" />
                 <div className="ml-4">
                   <p className="text-lg font-semibold text-gray-900">Email</p>
-                  <a href="mailto:hello@frostwoodlabs.com" className="text-lg text-blue-600 hover:text-blue-800">
+                  <a href="mailto:hello@frostwoodlabs.com" className="text-lg text-blue-400 hover:text-blue-500">
                     hello@frostwoodlabs.com
                   </a>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <Phone className="h-8 w-8 text-blue-600 mt-1" />
+                <Phone className="h-8 w-8 text-blue-400 mt-1" />
                 <div className="ml-4">
                   <p className="text-lg font-semibold text-gray-900">Phone</p>
-                  <a href="tel:+13074522403" className="text-lg text-blue-600 hover:text-blue-800">
+                  <a href="tel:+13074522403" className="text-lg text-blue-400 hover:text-blue-500">
                     +1 (307) 452-2403
                   </a>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <MapPin className="h-8 w-8 text-blue-600 mt-1" />
+                <MapPin className="h-8 w-8 text-blue-400 mt-1" />
                 <div className="ml-4">
                   <p className="text-lg font-semibold text-gray-900">Address</p>
                   <p className="text-lg text-gray-600">

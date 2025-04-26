@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 
 const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Contact', href: '/#contact' },
   { label: 'Terms', href: '/terms' },
   { label: 'Privacy', href: '/privacy' },
 ];
@@ -38,7 +36,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-blue-700">Frostwood Labs</span>
+              <span className="text-2xl font-bold text-blue-400">Frostwood Labs</span>
             </Link>
           </div>
           
@@ -49,14 +47,14 @@ const Navbar: React.FC = () => {
                   key={item.label}
                   to={item.href}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
-                    ${scrolled ? 'text-gray-700 hover:text-blue-700' : 'text-gray-700 hover:text-blue-700'}`}
+                    ${scrolled ? 'text-gray-700 hover:text-blue-400' : 'text-gray-700 hover:text-blue-400'}`}
                 >
                   {item.label}
                 </Link>
               ))}
               <Link
                 to="/#contact"
-                className="ml-4 px-4 py-2 rounded-md text-sm font-medium bg-blue-700 text-white hover:bg-blue-800 transition-colors"
+                className="ml-4 px-4 py-2 rounded-md text-sm font-medium bg-blue-400 text-white hover:bg-blue-500 transition-colors"
               >
                 Get Started
               </Link>
@@ -84,7 +82,7 @@ const Navbar: React.FC = () => {
             <Link
               key={item.label}
               to={item.href}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-100"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-400 hover:bg-blue-50"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
@@ -92,7 +90,7 @@ const Navbar: React.FC = () => {
           ))}
           <Link
             to="/#contact"
-            className="block px-3 py-2 rounded-md text-base font-medium bg-blue-700 text-white hover:bg-blue-800"
+            className="block px-3 py-2 rounded-md text-base font-medium bg-blue-400 text-white hover:bg-blue-500"
             onClick={() => setIsOpen(false)}
           >
             Get Started

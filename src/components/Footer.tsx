@@ -16,19 +16,19 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">Services</h3>
             <ul className="mt-4 space-y-2">
-              <li><a href="/#services" className="text-gray-300 hover:text-white text-sm">Custom Software</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-white text-sm">Mobile Apps</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-white text-sm">Cloud Solutions</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-white text-sm">Web Development</a></li>
+              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Custom Software</a></li>
+              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Mobile Apps</a></li>
+              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Cloud Solutions</a></li>
+              <li><a href="/#services" className="text-gray-300 hover:text-blue-400 text-sm">Web Development</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-sm font-semibold text-gray-200 uppercase tracking-wider">Company</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link to="/terms" className="text-gray-300 hover:text-white text-sm">Terms & Conditions</Link></li>
-              <li><Link to="/privacy" className="text-gray-300 hover:text-white text-sm">Privacy Policy</Link></li>
-              <li><a href="/#contact" className="text-gray-300 hover:text-white text-sm">Contact Us</a></li>
+              <li><Link to="/terms" className="text-gray-300 hover:text-blue-400 text-sm">Terms & Conditions</Link></li>
+              <li><Link to="/privacy" className="text-gray-300 hover:text-blue-400 text-sm">Privacy Policy</Link></li>
+              <li><a href="/#contact" className="text-gray-300 hover:text-blue-400 text-sm">Contact Us</a></li>
             </ul>
           </div>
           
