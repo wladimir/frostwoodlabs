@@ -39,45 +39,41 @@ const ServiceCard: React.FC<Service> = ({ title, description, icon }) => {
   const getIcon = () => {
     switch (icon) {
       case 'Code':
-        return <Code className="h-8 w-8 text-blue-400" />;
+        return <Code className="h-8 w-8 text-black" />;
       case 'Smartphone':
-        return <Smartphone className="h-8 w-8 text-blue-400" />;
+        return <Smartphone className="h-8 w-8 text-black" />;
       case 'Cloud':
-        return <Cloud className="h-8 w-8 text-blue-400" />;
+        return <Cloud className="h-8 w-8 text-black" />;
       case 'Globe':
-        return <Globe className="h-8 w-8 text-blue-400" />;
+        return <Globe className="h-8 w-8 text-black" />;
       case 'Link':
-        return <Link className="h-8 w-8 text-blue-400" />;
+        return <Link className="h-8 w-8 text-black" />;
       case 'MessageSquare':
-        return <MessageSquare className="h-8 w-8 text-blue-400" />;
+        return <MessageSquare className="h-8 w-8 text-black" />;
       default:
-        return <Code className="h-8 w-8 text-blue-400" />;
+        return <Code className="h-8 w-8 text-black" />;
     }
   };
 
   return (
-    <div className="bg-white rounded-xl p-8 transition-all duration-300 hover:shadow-xl border border-gray-100 hover:border-blue-100">
-      <div className="rounded-full bg-blue-50 w-16 h-16 flex items-center justify-center mb-6">
+    <div className="brutalist-border brutalist-bg p-8">
+      <div className="w-16 h-16 flex items-center justify-center mb-6">
         {getIcon()}
       </div>
-      <h3 className="text-2xl font-bold mb-4 text-gray-900">{title}</h3>
-      <p className="text-lg text-gray-600">{description}</p>
+      <h3 className="text-2xl font-extrabold mb-4 text-black uppercase tracking-widest">{title}</h3>
+      <p className="text-lg text-black">{description}</p>
     </div>
   );
 };
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Our Services</h2>
-          <p className="text-xl text-gray-600">
-            We offer comprehensive software development services to help your business thrive in the digital world.
-          </p>
+    <section id="services" className="section-padding brutalist-bg">
+      <div className="container-max px-0">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-black uppercase tracking-widest">Our Services</h2>
         </div>
-
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}
