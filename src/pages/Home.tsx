@@ -4,7 +4,7 @@ import Services from '../components/Services';
 
 const Home: React.FC = () => {
   return (
-    <div className="pt-16 brutalist-bg min-h-screen">
+    <div className="pt-16 min-h-screen" style={{backgroundColor: 'var(--color-bg)'}}>
       <Hero />
       <Services />
     </div>

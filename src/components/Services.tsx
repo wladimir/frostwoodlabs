@@ -68,7 +68,7 @@ const ServiceCard: React.FC<Service> = ({ title, description, icon }) => {
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="section-padding brutalist-bg">
+    <section id="services" className="section-padding" style={{backgroundColor: 'var(--color-mint)'}}>
       <div className="container-max px-0">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-black uppercase tracking-widest">Our Services</h2>

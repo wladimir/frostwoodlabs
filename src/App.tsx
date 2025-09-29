@@ -20,7 +20,7 @@ const ScrollToTop: React.FC = () => {
 function App() {
   // Update page title on render
   useEffect(() => {
-    document.title = 'Frostwood Labs - Custom Software Development';
+    document.title = 'Frostwood Labs, LLC - Custom Software Development';
   }, []);
 
   return (

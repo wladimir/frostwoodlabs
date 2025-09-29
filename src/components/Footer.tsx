@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="brutalist-bg text-black border-t-8 border-black">
+    <footer className="text-black border-t-8 border-black" style={{backgroundColor: 'var(--color-yellow)'}}>
       <div className="container-max px-0">
         <div className="py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Company Info */}
             <div>
-              <h3 className="text-xl font-extrabold mb-4 uppercase tracking-widest text-black">Frostwood Labs</h3>
+              <h3 className="text-xl font-extrabold mb-4 uppercase tracking-widest text-black">Frostwood Labs, LLC</h3>
               <p className="text-lg font-bold mb-4 text-black">
-                Custom software development and digital solutions for businesses.
+                Custom software development and digital solutions.
               </p>
               <div className="space-y-2">
                 <p className="text-black font-bold">
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                   <strong>Phone:</strong> <a href="tel:+13074522403" className="hover:underline text-black font-extrabold">+1 (307) 452-2403</a>
                 </p>
                 <p className="text-black font-bold">
-                  <strong>Address:</strong> <span role="img" aria-label="pin">📍</span> 75 E 3rd St, Ste 7, Sheridan, WY 82801
+                  <strong>Registered Office:</strong> <span role="img" aria-label="pin">📍</span> 75 E 3rd St, Ste 7, Sheridan, WY 82801
                 </p>
               </div>
             </div>
@@ -44,10 +44,10 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="text-xl font-extrabold mb-4 uppercase tracking-widest text-black">Legal</h3>
               <p className="text-lg font-bold mb-4 text-black">
-                Frostwood Labs LLC is a registered business entity in Wyoming.
+                <strong>Legal entity name (D-U-N-S):</strong> Frostwood Labs, LLC
               </p>
               <p className="text-lg font-bold mb-4 text-black">
-                <strong>D-U-N-S Number:</strong> 119478037
+                <strong>D-U-N-S:</strong> 119478037
               </p>
               <p className="text-lg font-bold mb-4 text-black">
                 <a 
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
                 </a>
               </p>
               <p className="text-black font-bold">
-                © {new Date().getFullYear()} Frostwood Labs LLC. All rights reserved.
+                © {new Date().getFullYear()} Frostwood Labs, LLC. All rights reserved.
               </p>
             </div>
           </div>
