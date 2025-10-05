@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Terms from './pages/Terms';
-import Privacy from './pages/Privacy';
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 // ScrollToTop component to scroll to top on route change
 const ScrollToTop: React.FC = () => {
@@ -20,7 +25,7 @@ const ScrollToTop: React.FC = () => {
 function App() {
   // Update page title on render
   useEffect(() => {
-    document.title = 'Frostwood Labs, LLC - Custom Software Development';
+    document.title = "Frostwood Labs, LLC - Custom Software Development";
   }, []);
 
   return (
