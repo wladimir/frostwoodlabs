@@ -1,64 +1,880 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Frostwood Labs - Custom software development and digital solutions for businesses. Transform your digital presence with our innovative solutions." />
-    <meta name="keywords" content="software development, custom software, mobile apps, web development, digital solutions, Wyoming LLC" />
-    <meta name="author" content="Frostwood Labs, LLC" />
-    <link rel="canonical" href="https://frostwoodlabs.com/" />
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://frostwoodlabs.com/" />
-    <meta property="og:title" content="Frostwood Labs, LLC - Custom Software Development" />
-    <meta property="og:description" content="Custom software development and digital solutions for businesses. Transform your digital presence with our innovative solutions." />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Frostwood Labs, LLC",
-      "url": "https://frostwoodlabs.com",
-      "logo": "https://frostwoodlabs.com/vite.svg",
-      "description": "Custom software development and digital solutions for businesses",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "75 E 3rd St, Ste 7",
-        "addressLocality": "Sheridan",
-        "addressRegion": "WY",
-        "postalCode": "82801",
-        "addressCountry": "US"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+1-307-452-2403",
-        "contactType": "customer service",
-        "email": "hello@frostwoodlabs.com"
-      },
-      "sameAs": []
-    }
-    </script>
-
-    <title>Frostwood Labs - Custom Software Development</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-            const decoded = l.search.slice(1).split('&').map(function (s) {
-                return s.replace(/~and~/g, '&')
-            }).join('?');
-            window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frostwood Labs | Product Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Archivo Black', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'neo-white': '#ffffff',
+                        'neo-black': '#000000',
+                        'neo-yellow': '#FFDE00',
+                        'neo-blue': '#3B82F6',
+                        'neo-pink': '#FF6B6B',
+                        'neo-green': '#4ADE80',
+                        'neo-bg': '#f4f4f0',
+                    },
+                    boxShadow: {
+                        'neo': '5px 5px 0px 0px #000000',
+                        'neo-sm': '3px 3px 0px 0px #000000',
+                        'neo-lg': '8px 8px 0px 0px #000000',
+                    }
+                }
+            }
         }
-      }(window.location))
     </script>
-  </body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet">
+    <style>
+        body {
+            background-color: #E0E7FF;
+            background-image: radial-gradient(#000000 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .neo-card {
+            transition: all 0.1s ease;
+        }
+
+        .neo-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px 0px #000000;
+        }
+
+        .neo-card:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px #000000;
+        }
+
+        .neo-button:active {
+            transform: translate(5px, 5px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Utility to hide views */
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-body text-neo-black overflow-x-hidden selection:bg-neo-pink selection:text-white flex flex-col min-h-screen">
+
+<!-- Navigation -->
+<nav class="fixed w-full top-0 z-50 bg-neo-white border-b-4 border-neo-black px-4 py-3 md:px-8">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="#" onclick="navigateTo('home')" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 bg-neo-black group-hover:bg-neo-blue transition-colors"></div>
+            <span class="font-sans text-xl md:text-2xl tracking-tighter uppercase">Frostwood<span
+                    class="text-neo-blue group-hover:text-neo-black">Labs</span></span>
+        </a>
+
+        <div class="hidden md:flex gap-6 items-center font-mono font-bold text-sm">
+            <a href="#capabilities" onclick="navigateTo('home', 'capabilities')"
+               class="hover:bg-neo-yellow hover:underline decoration-4 decoration-neo-black px-2 py-1">Capabilities</a>
+            <a href="#process" onclick="navigateTo('home', 'process')"
+               class="hover:bg-neo-green hover:underline decoration-4 decoration-neo-black px-2 py-1">Process</a>
+
+            <!-- Legal Dropdown (Upper Right Links) -->
+            <div class="relative group">
+                <button class="hover:bg-gray-200 px-2 py-1 flex items-center gap-2">
+                    Legal <i class="fa-solid fa-caret-down text-xs"></i>
+                </button>
+                <div class="absolute right-0 top-full mt-1 w-48 bg-white border-4 border-neo-black shadow-neo hidden group-hover:block">
+                    <a href="#terms" onclick="navigateTo('terms')"
+                       class="block px-4 py-2 hover:bg-neo-yellow border-b-2 border-neo-black">Terms of Service</a>
+                    <a href="#privacy" onclick="navigateTo('privacy')" class="block px-4 py-2 hover:bg-neo-green">Privacy
+                        Policy</a>
+                </div>
+            </div>
+
+            <a href="#contact" onclick="navigateTo('home', 'contact')"
+               class="neo-button bg-neo-pink border-2 border-neo-black shadow-neo-sm px-6 py-2 text-white uppercase hover:bg-red-500 transition-none">
+                Start Project
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden font-bold border-2 border-neo-black p-2 bg-neo-yellow shadow-neo-sm active:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu"
+         class="hidden absolute top-full left-0 w-full bg-neo-white border-b-4 border-neo-black p-4 flex flex-col gap-4 font-mono font-bold shadow-neo-lg">
+        <a href="#capabilities" onclick="navigateTo('home', 'capabilities'); toggleMobileMenu()"
+           class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-yellow">Capabilities</a>
+        <a href="#process" onclick="navigateTo('home', 'process'); toggleMobileMenu()"
+           class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-green">Process</a>
+        <div class="border-t-2 border-dashed border-neo-black my-1"></div>
+        <a href="#terms" onclick="navigateTo('terms'); toggleMobileMenu()"
+           class="block p-2 text-sm text-gray-600 hover:text-black hover:underline">Terms of Service</a>
+        <a href="#privacy" onclick="navigateTo('privacy'); toggleMobileMenu()"
+           class="block p-2 text-sm text-gray-600 hover:text-black hover:underline">Privacy Policy</a>
+        <a href="#contact" onclick="navigateTo('home', 'contact'); toggleMobileMenu()"
+           class="block p-2 bg-neo-pink border-2 border-neo-black shadow-neo-sm text-center text-white mt-2">Start
+            Project</a>
+    </div>
+</nav>
+
+<!-- MAIN HOME VIEW -->
+<div id="view-home" class="view-section active pt-20">
+    <!-- Hero Section -->
+    <header class="relative py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-8 space-y-6">
+                <div class="inline-block bg-neo-yellow border-2 border-neo-black shadow-neo-sm px-4 py-1 font-mono font-bold text-xs md:text-sm uppercase transform -rotate-2">
+                    Product Studio & Engineering
+                </div>
+                <h1 class="font-sans text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter">
+                    CUT THROUGH <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-pink"
+                          style="-webkit-text-stroke: 2px black;">THE NOISE.</span>
+                </h1>
+                <p class="font-mono text-lg md:text-xl max-w-2xl bg-white border-l-8 border-neo-black pl-4 py-2">
+                    Frostwood Labs engineers unmistakable digital experiences — modern platforms, heavy-duty data
+                    systems, and interfaces designed to be remembered.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#contact" onclick="navigateTo('home', 'contact')"
+                       class="neo-button text-center bg-neo-black text-neo-white border-4 border-neo-black shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-800">
+                        Start A Project
+                    </a>
+                    <a href="#capabilities" onclick="navigateTo('home', 'capabilities')"
+                       class="neo-button text-center bg-white text-neo-black border-4 border-neo-black shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-50">
+                        Explore Services
+                    </a>
+                </div>
+            </div>
+
+            <!-- Abstract Visual -->
+            <div class="md:col-span-4 hidden md:block relative h-80">
+                <div class="absolute inset-0 bg-neo-blue border-4 border-neo-black shadow-neo-lg transform rotate-3"></div>
+                <div class="absolute inset-0 bg-neo-pink border-4 border-neo-black shadow-neo-lg transform -rotate-3 opacity-80"></div>
+                <div class="absolute inset-0 bg-white border-4 border-neo-black flex items-center justify-center z-10">
+                    <div class="text-center space-y-2">
+                        <i class="fa-solid fa-bolt text-6xl text-neo-yellow"
+                           style="-webkit-text-stroke: 2px black; text-stroke: 2px black;"></i>
+                        <div class="font-mono font-bold text-2xl">EST. 2025</div>
+                        <div class="font-mono text-sm px-4">SHERIDAN, WY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="border-y-4 border-neo-black bg-neo-white overflow-hidden py-4">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 font-mono">
+            <div class="flex items-center gap-4 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-neo-black pb-4 md:pb-0">
+                <span class="text-4xl font-sans text-neo-blue" style="-webkit-text-stroke: 1px black;">6</span>
+                <div>
+                    <div class="font-bold uppercase">Weeks</div>
+                    <div class="text-xs text-gray-600">Average launch cadence</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-neo-black pb-4 md:pb-0">
+                <span class="text-4xl font-sans text-neo-pink" style="-webkit-text-stroke: 1px black;">99.5%</span>
+                <div>
+                    <div class="font-bold uppercase">Uptime</div>
+                    <div class="text-xs text-gray-600">Battle-tested ops</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-4xl font-sans text-neo-yellow" style="-webkit-text-stroke: 1px black;">48hr</span>
+                <div>
+                    <div class="font-bold uppercase">Kickoff</div>
+                    <div class="text-xs text-gray-600">Hands-on from day one</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="bg-neo-black text-neo-white py-3 border-b-4 border-neo-black font-mono font-bold uppercase text-lg overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                TypeScript • React • Java • Golang • Node • Cloud Infrastructure • AI Systems • Fintech • Internal Tools
+                • TypeScript • React • Java • Golang • Node • Cloud Infrastructure • AI Systems • Fintech • Internal
+                Tools •
+            </div>
+        </div>
+    </div>
+
+    <!-- Venture Studio / Own Products Section -->
+    <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="bg-neo-black text-neo-white border-4 border-neo-blue shadow-neo p-8 md:p-12 relative overflow-hidden">
+            <!-- decorative background element -->
+            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-neo-pink rounded-full mix-blend-exclusion opacity-50"></div>
+
+            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-neo-pink text-black border-2 border-white px-3 py-1 font-mono font-bold text-xs uppercase mb-4 transform -rotate-1">
+                        Skin in the game
+                    </div>
+                    <h2 class="font-sans text-4xl md:text-5xl uppercase mb-6 leading-tight">
+                        We Don't Just Consult. <br>
+                        <span class="text-neo-yellow" style="-webkit-text-stroke: 1px white;">We Build.</span>
+                    </h2>
+                    <p class="font-mono text-lg text-gray-300 mb-6">
+                        Frostwood Labs isn't just a dev shop. We are a <strong>venture studio</strong>. We incubate,
+                        build, and scale our own internal SaaS products using the exact same stacks and playbooks we
+                        bring to your project.
+                    </p>
+                    <p class="font-mono text-sm text-gray-400">
+                        When you work with us, you aren't getting career consultants. You're getting founders and
+                        engineers who live with their code in production every single day.
+                    </p>
+                </div>
+                <div class="space-y-4 font-mono">
+                    <div class="bg-gray-900 p-4 border-l-4 border-neo-green group hover:bg-gray-800 transition-colors">
+                        <h4 class="font-bold text-neo-green text-lg uppercase mb-1 group-hover:translate-x-1 transition-transform">
+                            Battle-Tested Ops</h4>
+                        <p class="text-sm text-gray-400">The infrastructure we deploy for you is the same heavy-duty
+                            system powering our own revenue-generating platforms.</p>
+                    </div>
+                    <div class="bg-gray-900 p-4 border-l-4 border-neo-blue group hover:bg-gray-800 transition-colors">
+                        <h4 class="font-bold text-neo-blue text-lg uppercase mb-1 group-hover:translate-x-1 transition-transform">
+                            Real Reliability</h4>
+                        <p class="text-sm text-gray-400">We don't theorize about uptime. We maintain 99.9% availability
+                            across our internal portfolio.</p>
+                    </div>
+                    <div class="bg-gray-900 p-4 border-l-4 border-neo-yellow group hover:bg-gray-800 transition-colors">
+                        <h4 class="font-bold text-neo-yellow text-lg uppercase mb-1 group-hover:translate-x-1 transition-transform">
+                            Shared DNA</h4>
+                        <p class="text-sm text-gray-400">Our client work inherits every optimization, security patch,
+                            and performance win from our internal labs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Focus Areas -->
+    <section id="capabilities" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="mb-12 border-l-8 border-neo-blue pl-6">
+            <h2 class="font-sans text-4xl md:text-6xl uppercase mb-2">Focus Areas</h2>
+            <p class="font-mono text-lg">We ship our own products and help you ship yours.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards (Same as before) -->
+            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+                <div>
+                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-yellow group-hover:text-black transition-colors">
+                        01
+                    </div>
+                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Platform Engineering</h3>
+                    <p class="font-mono text-sm leading-relaxed">Event-driven backends, modular APIs, and infrastructure
+                        as code built for heavy traffic and rapid change.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Backend</span>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">API</span>
+                </div>
+            </div>
+            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+                <div>
+                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-pink group-hover:text-black transition-colors">
+                        02
+                    </div>
+                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Interface Systems</h3>
+                    <p class="font-mono text-sm leading-relaxed">Accessible, high-performance web experiences that keep
+                        teams and customers moving quickly.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Frontend</span>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">UX</span>
+                </div>
+            </div>
+            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+                <div>
+                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-blue group-hover:text-white transition-colors">
+                        03
+                    </div>
+                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Mobile & Edge</h3>
+                    <p class="font-mono text-sm leading-relaxed">Native and cross-platform apps with offline-first
+                        behavior, fluid motion, and modern pipelines.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">iOS</span>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Android</span>
+                </div>
+            </div>
+            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+                <div>
+                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-green group-hover:text-black transition-colors">
+                        04
+                    </div>
+                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Cloud & Data Ops</h3>
+                    <p class="font-mono text-sm leading-relaxed">Scalable data ingestion, AI-powered intelligence
+                        layers, and observability to keep every release honest.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">AI</span>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Data</span>
+                </div>
+            </div>
+            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+                <div>
+                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-yellow group-hover:text-black transition-colors">
+                        05
+                    </div>
+                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Product Rescue</h3>
+                    <p class="font-mono text-sm leading-relaxed">Fractional leadership, due diligence, and product
+                        rescue missions when ambition outruns delivery.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Consulting</span>
+                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Audit</span>
+                </div>
+            </div>
+            <div class="bg-neo-yellow border-4 border-neo-black shadow-neo p-6 flex flex-col justify-center items-center text-center neo-card">
+                <h3 class="font-sans text-3xl uppercase mb-4">Need Custom?</h3>
+                <p class="font-mono text-sm mb-6">We connect your ecosystem with resilient automation and secure
+                    APIs.</p>
+                <a href="#contact" onclick="navigateTo('home', 'contact')"
+                   class="w-full bg-neo-black text-white font-bold py-3 hover:bg-white hover:text-black border-2 border-transparent hover:border-neo-black transition-colors uppercase">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="bg-neo-black text-neo-white py-20 border-y-4 border-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <h2 class="font-sans text-4xl md:text-6xl uppercase mb-12 text-center text-neo-yellow"
+                style="-webkit-text-stroke: 1px white;">The Studio Model</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-white">
+                <div class="p-8 border-b-4 md:border-b-0 md:border-r-4 border-white hover:bg-gray-900 transition-colors">
+                    <div class="text-neo-pink font-sans text-6xl mb-4">01</div>
+                    <h3 class="text-2xl font-bold font-mono uppercase mb-2">Discovery Sprints</h3>
+                    <div class="text-sm font-mono bg-neo-pink text-black inline-block px-2 mb-4">Days 0–10</div>
+                    <p class="font-mono text-gray-300">We align on ambition, interrogate the data, and co-design a
+                        roadmap that pairs ruthless prioritisation with measurable outcomes.</p>
+                </div>
+                <div class="p-8 border-b-4 md:border-b-0 md:border-r-4 border-white hover:bg-gray-900 transition-colors">
+                    <div class="text-neo-blue font-sans text-6xl mb-4">02</div>
+                    <h3 class="text-2xl font-bold font-mono uppercase mb-2">Design & Build</h3>
+                    <div class="text-sm font-mono bg-neo-blue text-black inline-block px-2 mb-4">Weeks 2–6</div>
+                    <p class="font-mono text-gray-300">Product design, system architecture, and implementation run in
+                        parallel, supported by rapid prototypes and feedback rituals.</p>
+                </div>
+                <div class="p-8 hover:bg-gray-900 transition-colors">
+                    <div class="text-neo-green font-sans text-6xl mb-4">03</div>
+                    <h3 class="text-2xl font-bold font-mono uppercase mb-2">Launch & Amplify</h3>
+                    <div class="text-sm font-mono bg-neo-green text-black inline-block px-2 mb-4">Weeks 6+</div>
+                    <p class="font-mono text-gray-300">We harden infrastructure, ship continuously, and equip your team
+                        with playbooks, telemetry, and ongoing partnership options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 md:px-8 max-w-5xl mx-auto">
+        <div class="bg-white border-4 border-neo-black shadow-neo-lg p-8 md:p-12 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-sans text-4xl md:text-5xl uppercase mb-6 leading-none">
+                    Let's Build <br> Something <br> <span class="bg-neo-yellow px-2">Unmistakable</span>
+                </h2>
+                <p class="font-mono text-lg mb-10">
+                    Tell us what you are building, what is on fire, or where you want to go. We will respond inside one
+                    business day.
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 font-mono">
+                    <a href="mailto:hello@frostwoodlabs.com"
+                       class="flex items-center gap-3 text-lg hover:text-neo-blue group">
+                        <div class="w-12 h-12 border-2 border-neo-black bg-neo-pink flex items-center justify-center text-white shadow-neo-sm group-hover:-translate-y-1 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span class="break-all font-bold">hello@frostwoodlabs.com</span>
+                    </a>
+                    <a href="tel:+13074522403" class="flex items-center gap-3 text-lg hover:text-neo-green group">
+                        <div class="w-12 h-12 border-2 border-neo-black bg-neo-blue flex items-center justify-center text-white shadow-neo-sm group-hover:-translate-y-1 transition-transform">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span class="font-bold">+1 (307) 452-2403</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- TERMS OF SERVICE VIEW -->
+<div id="view-terms" class="view-section pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto bg-white border-4 border-neo-black shadow-neo-lg p-8 md:p-16">
+        <div class="inline-block bg-neo-yellow border-2 border-neo-black px-4 py-1 font-mono font-bold text-sm uppercase mb-6">
+            Legal Document
+        </div>
+        <h1 class="font-sans text-4xl md:text-6xl uppercase mb-4">Terms of Service</h1>
+        <p class="font-mono text-sm text-gray-500 mb-12 border-b-2 border-dashed border-neo-black pb-4">Last updated:
+            July 22, 2025</p>
+
+        <div class="font-mono space-y-12">
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">1. Agreement to
+                    Terms</h2>
+                <p>By downloading, installing, or using Frostwood Labs, LLC's mobile applications and software products,
+                    you agree to be bound by these Terms of Service and acknowledge that you have read and understood
+                    our Privacy Policy.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">2. Our Products
+                    and Services</h2>
+                <p class="mb-4">Frostwood Labs, LLC owns and operates mobile applications and software solutions,
+                    including but not limited to:</p>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> iOS mobile applications available on the
+                        App Store
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Android mobile applications available on
+                        Google Play Store
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Web-based software applications and
+                        platforms
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> SaaS (Software as a Service) solutions</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Analytics and productivity tools</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Digital platforms and online services</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Associated APIs and developer tools</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">3. Intellectual
+                    Property Rights</h2>
+                <p class="mb-4">All intellectual property rights in our applications and services belong to Frostwood
+                    Labs, LLC:</p>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> All mobile applications, software, and
+                        digital products are owned by Frostwood Labs, LLC
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Users receive a limited, non-exclusive
+                        license to use our applications according to these terms
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> All source code, algorithms, designs, and
+                        proprietary technology remain our exclusive property
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Trademarks, logos, and brand elements are
+                        protected intellectual property of Frostwood Labs, LLC
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Users may not reverse engineer, modify, or
+                        redistribute our applications
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">4. Payment and
+                    Subscriptions</h2>
+                <p class="mb-4">Our applications may offer paid features, subscriptions, or in-app purchases:</p>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> All payments are processed through Apple
+                        App Store, Google Play Store, or our secure payment systems
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Subscription fees are charged automatically
+                        according to your chosen plan
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Prices are quoted in your local currency or
+                        USD as specified in the app
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Refunds are handled according to Apple App
+                        Store and Google Play Store policies
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> You may cancel subscriptions at any time
+                        through your device settings or our platform
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">5. User
+                    Conduct</h2>
+                <p class="mb-4">When using our applications, you agree to:</p>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> Use our applications only for lawful
+                        purposes
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Not attempt to circumvent security measures
+                        or access restrictions
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Not use our applications to transmit
+                        harmful or illegal content
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Respect the intellectual property rights of
+                        others
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Comply with applicable laws and regulations
+                        in your jurisdiction
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">6. Limitation of
+                    Liability</h2>
+                <p>To the maximum extent permitted by law, Frostwood Labs, LLC shall not be liable for any indirect,
+                    incidental, special, consequential, or punitive damages arising from the use of our applications and
+                    services.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">7. Account
+                    Termination</h2>
+                <p class="mb-4">We reserve the right to suspend or terminate your access to our applications if you
+                    violate these terms. Upon termination:</p>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> Your license to use our applications is
+                        immediately revoked
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> You must cease all use of our applications
+                        and delete them from your devices
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Your user data will be handled according to
+                        our Privacy Policy
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Paid subscriptions may be cancelled
+                        according to our refund policy
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">8. Governing
+                    Law</h2>
+                <p>These terms are governed by the laws of Wyoming, United States, without regard to its conflict of law
+                    principles.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">9. Changes to
+                    Terms</h2>
+                <p>We reserve the right to modify these terms at any time. We will notify you of any material changes
+                    through app notifications, email, or by posting updates on our website.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">10. Contact
+                    Information</h2>
+                <p class="mb-4">For questions about these terms, please contact Frostwood Labs, LLC at:</p>
+                <div class="bg-neo-bg p-4 border-2 border-neo-black">
+                    <p><strong>Business email:</strong> hello@frostwoodlabs.com</p>
+                    <p><strong>Business phone:</strong> +1 (307) 452-2403</p>
+                    <p><strong>Registered Office:</strong> 75 E 3rd St, Ste 7, Sheridan, WY 82801</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- PRIVACY POLICY VIEW -->
+<div id="view-privacy" class="view-section pt-28 pb-20 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto bg-white border-4 border-neo-black shadow-neo-lg p-8 md:p-16">
+        <div class="inline-block bg-neo-green border-2 border-neo-black px-4 py-1 font-mono font-bold text-sm uppercase mb-6">
+            Legal Document
+        </div>
+        <h1 class="font-sans text-4xl md:text-6xl uppercase mb-4">Privacy Policy</h1>
+        <p class="font-mono text-sm text-gray-500 mb-12 border-b-2 border-dashed border-neo-black pb-4">Last updated:
+            July 22, 2025</p>
+
+        <div class="font-mono space-y-12">
+            <p class="text-lg">This Privacy Policy describes how Frostwood Labs, LLC ("we", "us", or "our") collects,
+                uses, and protects information when you use our mobile applications, software solutions, and digital
+                products.</p>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">1. Information We
+                    Collect</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold mb-2 underline decoration-neo-pink decoration-4">Personal Information:</h3>
+                        <ul class="list-inside space-y-2">
+                            <li class="flex items-start"><span class="mr-2 text-neo-pink">●</span> Account registration
+                                information (name, email)
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-pink">●</span> Profile information
+                                and preferences
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-pink">●</span> Payment information
+                                for subscriptions
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-pink">●</span> User-generated
+                                content
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-pink">●</span> Communications and
+                                support interactions
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-2 underline decoration-neo-blue decoration-4">Technical
+                            Information:</h3>
+                        <ul class="list-inside space-y-2">
+                            <li class="flex items-start"><span class="mr-2 text-neo-blue">●</span> Device identifiers
+                                and mobile advertising IDs
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-blue">●</span> Operating system and
+                                app version
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-blue">●</span> App usage statistics
+                                and performance data
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-blue">●</span> Crash reports and
+                                diagnostic information
+                            </li>
+                            <li class="flex items-start"><span class="mr-2 text-neo-blue">●</span> Network and
+                                connectivity information
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">2. How We Use
+                    Your Information</h2>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> Operating and maintaining our mobile
+                        applications
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Personalizing your app experience and
+                        content
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Processing payments for subscriptions and
+                        in-app purchases
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Providing customer support and responding
+                        to inquiries
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Analyzing app usage to improve
+                        functionality and performance
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Sending app updates, security alerts, and
+                        administrative messages
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Complying with legal obligations and
+                        enforcing our terms
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">3. Legal Basis
+                    for Processing</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-gray-200 px-2 py-1 text-sm font-bold">Contract performance</span>
+                    <span class="bg-gray-200 px-2 py-1 text-sm font-bold">Legal obligations</span>
+                    <span class="bg-gray-200 px-2 py-1 text-sm font-bold">Legitimate business interests</span>
+                    <span class="bg-gray-200 px-2 py-1 text-sm font-bold">Consent</span>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">4. Data Sharing
+                    and Third Parties</h2>
+                <p class="mb-4">We may share your data with:</p>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> App store platforms (Apple App Store,
+                        Google Play Store)
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Payment processors for subscription and
+                        purchase processing
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Analytics services to understand app usage
+                        and performance
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Cloud infrastructure providers for data
+                        storage and processing
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Customer support platforms for providing
+                        assistance
+                    </li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Legal authorities when required by law</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">5. Data
+                    Security</h2>
+                <p>We implement encryption in transit and at rest, access controls, regular security assessments, and
+                    employee training on data protection.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">6. Your
+                    Rights</h2>
+                <ul class="list-inside space-y-2 ml-4">
+                    <li class="flex items-start"><span class="mr-2">■</span> Access your personal data</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Correct inaccurate data</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Request data deletion</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Object to data processing</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Request data portability</li>
+                    <li class="flex items-start"><span class="mr-2">■</span> Withdraw consent</li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">7. Data
+                            Retention</h2>
+                        <p>We retain your data for as long as necessary to provide our services. When data is no longer
+                            needed, it is securely deleted or anonymized.</p>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">8.
+                            International Transfers</h2>
+                        <p>Your data may be processed in countries outside your home country. We ensure appropriate
+                            safeguards are in place.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">9-11. Cookies,
+                    Children & Changes</h2>
+                <p class="mb-2"><strong>Cookies:</strong> We use cookies to improve experience. You can control
+                    preferences in browser settings.</p>
+                <p class="mb-2"><strong>Children:</strong> Services not directed to under 13. We do not knowingly
+                    collect data from children.</p>
+                <p><strong>Changes:</strong> We may update this policy. Material changes will be notified via website or
+                    email.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-xl uppercase bg-neo-black text-white inline-block px-2 mb-4">12. Contact
+                    Us</h2>
+                <div class="bg-neo-bg p-4 border-2 border-neo-black">
+                    <p>For privacy-related inquiries:</p>
+                    <p><strong>Business email:</strong> hello@frostwoodlabs.com</p>
+                    <p><strong>Business phone:</strong> +1 (307) 452-2403</p>
+                    <p><strong>Registered Office:</strong> 75 E 3rd St, Ste 7, Sheridan, WY 82801</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-neo-white border-t-4 border-neo-black pt-12 pb-6 px-4 mt-auto">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-12 font-mono">
+        <div class="col-span-2">
+            <div class="font-sans text-2xl uppercase mb-4">Frostwood Labs, LLC</div>
+            <p class="text-sm max-w-xs mb-4">
+                Registered Office:<br>
+                75 E 3rd St, Ste 7<br>
+                Sheridan, WY 82801
+            </p>
+            <div class="text-xs text-gray-500">
+                D-U-N-S: 119478037<br>
+                <a href="https://wyobiz.wyo.gov/Business/FilingDetails.aspx?eFNum=196038014227126004245172030113091158227120026048"
+                   target="_blank" class="hover:text-neo-black hover:bg-neo-yellow transition-colors">
+                    Wyoming Business Reg.
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <div class="font-bold uppercase border-b-2 border-neo-black mb-4 inline-block">Legal</div>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#terms" onclick="navigateTo('terms')" class="hover:bg-neo-yellow px-1">Terms of Service</a>
+                </li>
+                <li><a href="#privacy" onclick="navigateTo('privacy')" class="hover:bg-neo-yellow px-1">Privacy
+                    Policy</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto text-center font-mono text-xs pt-8 border-t-2 border-dashed border-neo-black">
+        © 2025 Frostwood Labs, LLC. All rights reserved. Built with ☕ and code.
+    </div>
+</footer>
+
+<script>
+    // SPA Logic
+    function navigateTo(viewId, sectionId = null) {
+        // Hide all sections
+        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+
+        // Show requested view
+        const view = document.getElementById('view-' + viewId);
+        if (view) {
+            view.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // If a specific section anchor is requested within home, scroll to it
+        if (sectionId && viewId === 'home') {
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({behavior: 'smooth'});
+                }
+            }, 100);
+        }
+    }
+
+    function toggleMobileMenu() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    // Handle initial load based on Hash
+    window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash === 'terms') navigateTo('terms');
+        else if (hash === 'privacy') navigateTo('privacy');
+        else navigateTo('home');
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash === 'terms') navigateTo('terms');
+        else if (hash === 'privacy') navigateTo('privacy');
+        else navigateTo('home');
+    });
+</script>
+</body>
 </html>
