@@ -104,17 +104,19 @@
         </a>
 
         <div class="hidden md:flex gap-6 items-center font-mono font-bold text-sm">
-            <a href="#capabilities" onclick="navigateTo('home', 'capabilities')"
+            <a href="#home" onclick="navigateTo('home', 'capabilities'); return false;"
                class="hover:bg-neo-yellow hover:underline decoration-4 decoration-neo-black px-2 py-1">Capabilities</a>
-            <a href="#process" onclick="navigateTo('home', 'process')"
+            <a href="#home" onclick="navigateTo('home', 'process'); return false;"
                class="hover:bg-neo-green hover:underline decoration-4 decoration-neo-black px-2 py-1">Process</a>
 
             <!-- Legal Dropdown (Upper Right Links) -->
-            <div class="relative group">
-                <button class="hover:bg-gray-200 px-2 py-1 flex items-center gap-2">
+            <div class="relative" id="legal-dropdown">
+                <button id="legal-toggle" aria-haspopup="true" aria-expanded="false"
+                        class="hover:bg-gray-200 px-2 py-1 flex items-center gap-2">
                     Legal <i class="fa-solid fa-caret-down text-xs"></i>
                 </button>
-                <div class="absolute right-0 top-full mt-1 w-48 bg-white border-4 border-neo-black shadow-neo hidden group-hover:block">
+                <div id="legal-menu"
+                     class="absolute right-0 top-full mt-1 w-48 bg-white border-4 border-neo-black shadow-neo hidden">
                     <a href="#terms" onclick="navigateTo('terms')"
                        class="block px-4 py-2 hover:bg-neo-yellow border-b-2 border-neo-black">Terms of Service</a>
                     <a href="#privacy" onclick="navigateTo('privacy')" class="block px-4 py-2 hover:bg-neo-green">Privacy
@@ -122,7 +124,7 @@
                 </div>
             </div>
 
-            <a href="#contact" onclick="navigateTo('home', 'contact')"
+            <a href="#home" onclick="navigateTo('home', 'contact'); return false;"
                class="neo-button bg-neo-pink border-2 border-neo-black shadow-neo-sm px-6 py-2 text-white uppercase hover:bg-red-500 transition-none">
                 Start Project
             </a>
@@ -138,16 +140,16 @@
     <!-- Mobile Menu Dropdown -->
     <div id="mobile-menu"
          class="hidden absolute top-full left-0 w-full bg-neo-white border-b-4 border-neo-black p-4 flex flex-col gap-4 font-mono font-bold shadow-neo-lg">
-        <a href="#capabilities" onclick="navigateTo('home', 'capabilities'); toggleMobileMenu()"
+        <a href="#home" onclick="navigateTo('home', 'capabilities'); toggleMobileMenu(); return false;"
            class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-yellow">Capabilities</a>
-        <a href="#process" onclick="navigateTo('home', 'process'); toggleMobileMenu()"
+        <a href="#home" onclick="navigateTo('home', 'process'); toggleMobileMenu(); return false;"
            class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-green">Process</a>
         <div class="border-t-2 border-dashed border-neo-black my-1"></div>
         <a href="#terms" onclick="navigateTo('terms'); toggleMobileMenu()"
            class="block p-2 text-sm text-gray-600 hover:text-black hover:underline">Terms of Service</a>
         <a href="#privacy" onclick="navigateTo('privacy'); toggleMobileMenu()"
            class="block p-2 text-sm text-gray-600 hover:text-black hover:underline">Privacy Policy</a>
-        <a href="#contact" onclick="navigateTo('home', 'contact'); toggleMobileMenu()"
+        <a href="#home" onclick="navigateTo('home', 'contact'); toggleMobileMenu(); return false;"
            class="block p-2 bg-neo-pink border-2 border-neo-black shadow-neo-sm text-center text-white mt-2">Start
             Project</a>
     </div>
@@ -172,11 +174,11 @@
                     systems, and interfaces designed to be remembered.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#contact" onclick="navigateTo('home', 'contact')"
+                    <a href="#home" onclick="navigateTo('home', 'contact'); return false;"
                        class="neo-button text-center bg-neo-black text-neo-white border-4 border-neo-black shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-800">
                         Start A Project
                     </a>
-                    <a href="#capabilities" onclick="navigateTo('home', 'capabilities')"
+                    <a href="#home" onclick="navigateTo('home', 'capabilities'); return false;"
                        class="neo-button text-center bg-white text-neo-black border-4 border-neo-black shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-50">
                         Explore Services
                     </a>
@@ -369,7 +371,7 @@
                 <h3 class="font-sans text-3xl uppercase mb-4">Need Custom?</h3>
                 <p class="font-mono text-sm mb-6">We connect your ecosystem with resilient automation and secure
                     APIs.</p>
-                <a href="#contact" onclick="navigateTo('home', 'contact')"
+                <a href="#home" onclick="navigateTo('home', 'contact'); return false;"
                    class="w-full bg-neo-black text-white font-bold py-3 hover:bg-white hover:text-black border-2 border-transparent hover:border-neo-black transition-colors uppercase">
                     Contact Us
                 </a>
@@ -833,6 +835,60 @@
 </footer>
 
 <script>
+    function setupLegalDropdown() {
+        const dropdown = document.getElementById('legal-dropdown');
+        const toggle = document.getElementById('legal-toggle');
+        const menu = document.getElementById('legal-menu');
+        if (!dropdown || !toggle || !menu) return;
+
+        let closeTimeout = null;
+
+        const cancelClose = () => {
+            if (closeTimeout) {
+                clearTimeout(closeTimeout);
+                closeTimeout = null;
+            }
+        };
+
+        const closeMenu = () => {
+            cancelClose();
+            menu.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+        };
+
+        const scheduleClose = () => {
+            cancelClose();
+            closeTimeout = setTimeout(closeMenu, 250);
+        };
+
+        const openMenu = () => {
+            menu.classList.remove('hidden');
+            toggle.setAttribute('aria-expanded', 'true');
+        };
+
+        toggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) closeMenu(); else openMenu();
+        });
+
+        dropdown.addEventListener('mouseenter', () => {
+            cancelClose();
+            openMenu();
+        });
+        dropdown.addEventListener('mouseleave', scheduleClose);
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => closeMenu());
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!dropdown.contains(event.target)) {
+                closeMenu();
+            }
+        });
+    }
+
     // SPA Logic
     function navigateTo(viewId, sectionId = null) {
         // Hide all sections
@@ -842,7 +898,7 @@
         const view = document.getElementById('view-' + viewId);
         if (view) {
             view.classList.add('active');
-            window.scrollTo(0, 0);
+            if (!sectionId) window.scrollTo(0, 0); // avoid top jump when deep-linking within home
         }
 
         // If a specific section anchor is requested within home, scroll to it
@@ -852,7 +908,7 @@
                 if (element) {
                     element.scrollIntoView({behavior: 'smooth'});
                 }
-            }, 100);
+            }, 50);
         }
     }
 
@@ -862,6 +918,8 @@
 
     // Handle initial load based on Hash
     window.addEventListener('DOMContentLoaded', () => {
+        setupLegalDropdown();
+
         const hash = window.location.hash.replace('#', '');
         if (hash === 'terms') navigateTo('terms');
         else if (hash === 'privacy') navigateTo('privacy');
