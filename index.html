@@ -108,6 +108,8 @@
                class="hover:bg-neo-yellow hover:underline decoration-4 decoration-neo-black px-2 py-1">Capabilities</a>
             <a href="#home" onclick="navigateTo('home', 'process'); return false;"
                class="hover:bg-neo-green hover:underline decoration-4 decoration-neo-black px-2 py-1">Process</a>
+            <a href="#about" onclick="navigateTo('about')"
+               class="hover:bg-white hover:underline decoration-4 decoration-neo-black px-2 py-1">About</a>
 
             <!-- Legal Dropdown (Upper Right Links) -->
             <div class="relative" id="legal-dropdown">
@@ -144,6 +146,8 @@
            class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-yellow">Capabilities</a>
         <a href="#home" onclick="navigateTo('home', 'process'); toggleMobileMenu(); return false;"
            class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-green">Process</a>
+        <a href="#about" onclick="navigateTo('about'); toggleMobileMenu();"
+           class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-white">About</a>
         <div class="border-t-2 border-dashed border-neo-black my-1"></div>
         <a href="#terms" onclick="navigateTo('terms'); toggleMobileMenu()"
            class="block p-2 text-sm text-gray-600 hover:text-black hover:underline">Terms of Service</a>
@@ -373,7 +377,7 @@
                     APIs.</p>
                 <a href="#home" onclick="navigateTo('home', 'contact'); return false;"
                    class="w-full bg-neo-black text-white font-bold py-3 hover:bg-white hover:text-black border-2 border-transparent hover:border-neo-black transition-colors uppercase">
-                    Contact Us
+                    Contact Me
                 </a>
             </div>
         </div>
@@ -419,8 +423,7 @@
                     Let's Build <br> Something <br> <span class="bg-neo-yellow px-2">Unmistakable</span>
                 </h2>
                 <p class="font-mono text-lg mb-10">
-                    Tell us what you are building, what is on fire, or where you want to go. We will respond inside one
-                    business day.
+                    Tell me what you’re building, what is on fire, or the outcome you need. I reply within one business day.
                 </p>
 
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 font-mono">
@@ -441,6 +444,100 @@
             </div>
         </div>
     </section>
+</div>
+
+<!-- ABOUT VIEW -->
+<div id="view-about" class="view-section pt-24 pb-20 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto space-y-12">
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-5 bg-white border-4 border-neo-black shadow-neo-lg p-8 space-y-5 neo-card">
+                <div class="inline-block bg-neo-pink border-2 border-neo-black px-4 py-1 font-mono font-bold text-xs uppercase transform -rotate-2">
+                    About the Founder
+                </div>
+                <h1 class="font-sans text-4xl md:text-5xl uppercase leading-tight">Vladimir Ćirković</h1>
+                <p class="font-mono text-sm text-gray-700">
+                    Backend engineer & architect who keeps revenue-critical systems calm—and enjoys the pressure.
+                </p>
+                <div class="space-y-3 font-mono text-sm">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-location-dot text-neo-blue"></i>
+                        <span>Wyoming, USA · Remote-first</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-briefcase text-neo-green"></i>
+                        <span>Backend, distributed systems, and technical leadership</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-graduation-cap text-neo-pink"></i>
+                        <span>MSc, Informatics & Software Engineering — University of Belgrade</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="mailto:hello@frostwoodlabs.com"
+                       class="neo-button bg-neo-black text-white border-2 border-neo-black shadow-neo-sm px-4 py-2 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope"></i>Email
+                    </a>
+                    <a href="tel:+13074522403"
+                       class="neo-button bg-white text-neo-black border-2 border-neo-black shadow-neo-sm px-4 py-2 flex items-center gap-2">
+                        <i class="fa-solid fa-phone"></i>Call
+                    </a>
+                    <a href="https://www.linkedin.com/in/vcirkovic/" target="_blank" rel="noopener"
+                       class="neo-button bg-neo-blue text-white border-2 border-neo-black shadow-neo-sm px-4 py-2 flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin"></i>LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-7 space-y-6">
+                <div class="bg-neo-bg border-4 border-neo-black shadow-neo-lg p-6 md:p-8 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-neo-yellow border-2 border-neo-black px-3 py-1 font-mono font-bold text-xs uppercase">
+                        <i class="fa-solid fa-compass"></i> Focus
+                    </div>
+                    <p class="font-mono text-base leading-relaxed">
+                        I build backends that stay predictable when money moves and traffic spikes. My comfort zone is Go, Java, Scala, and Kotlin with Kafka, PostgreSQL/MySQL, and cloud-native stacks (AWS/GCP/Kubernetes/Docker). I sweat clean contracts, reliable APIs, and observability because surprises are for weekends, not prod.
+                    </p>
+                    <p class="font-mono text-base leading-relaxed">
+                        I sit with product, finance, and ops to make billing, compliance, and data-heavy flows boringly reliable. I lead by pairing, writing things down, and shipping the critical paths with monitoring before the edge cases find us.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-4 font-mono text-sm">
+                        <div class="bg-white border-2 border-neo-black shadow-neo-sm p-4 space-y-2">
+                            <div class="font-bold uppercase flex items-center gap-2">
+                                <span class="w-2 h-2 bg-neo-blue inline-block"></span> Current Work
+                            </div>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Toggl — Monetization backend, Stripe, subscriptions, invoicing</li>
+                                <li>Hardening revenue services with lean, high-availability practices</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border-2 border-neo-black shadow-neo-sm p-4 space-y-2">
+                            <div class="font-bold uppercase flex items-center gap-2">
+                                <span class="w-2 h-2 bg-neo-green inline-block"></span> Recent Highlights
+                            </div>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>BVNK — Event-driven crypto platform, audit-ready data store</li>
+                                <li>Vroom — Containerized backends and resilient high-volume integrations</li>
+                                <li>RMS/Moody’s — High-throughput risk modeling with event sourcing & CQRS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-3 gap-4 font-mono text-sm">
+                        <div class="bg-white border-2 border-neo-black shadow-neo-sm p-4 space-y-2">
+                            <div class="font-bold uppercase border-b-2 border-neo-black pb-1">Tech Stack</div>
+                            <p>Go, Java, Scala, Kotlin; Spring Boot; Kafka; PostgreSQL/MySQL; Kubernetes; Docker; event sourcing & CQRS.</p>
+                        </div>
+                        <div class="bg-white border-2 border-neo-black shadow-neo-sm p-4 space-y-2">
+                            <div class="font-bold uppercase border-b-2 border-neo-black pb-1">Domains</div>
+                            <p>Fintech and payments, crypto/digital assets, e-commerce, gaming, and real-time data processing.</p>
+                        </div>
+                        <div class="bg-white border-2 border-neo-black shadow-neo-sm p-4 space-y-2">
+                            <div class="font-bold uppercase border-b-2 border-neo-black pb-1">Working Style</div>
+                            <p>Hands-on, test-conscious, documentation-first. I mentor engineers, align stakeholders, and keep delivery measurable—and I stick around to own outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- TERMS OF SERVICE VIEW -->
@@ -821,6 +918,7 @@
         <div>
             <div class="font-bold uppercase border-b-2 border-neo-black mb-4 inline-block">Legal</div>
             <ul class="space-y-2 text-sm">
+                <li><a href="#about" onclick="navigateTo('about')" class="hover:bg-neo-yellow px-1">About</a></li>
                 <li><a href="#terms" onclick="navigateTo('terms')" class="hover:bg-neo-yellow px-1">Terms of Service</a>
                 </li>
                 <li><a href="#privacy" onclick="navigateTo('privacy')" class="hover:bg-neo-yellow px-1">Privacy
@@ -923,6 +1021,7 @@
         const hash = window.location.hash.replace('#', '');
         if (hash === 'terms') navigateTo('terms');
         else if (hash === 'privacy') navigateTo('privacy');
+        else if (hash === 'about') navigateTo('about');
         else navigateTo('home');
     });
 
@@ -931,6 +1030,7 @@
         const hash = window.location.hash.replace('#', '');
         if (hash === 'terms') navigateTo('terms');
         else if (hash === 'privacy') navigateTo('privacy');
+        else if (hash === 'about') navigateTo('about');
         else navigateTo('home');
     });
 </script>
