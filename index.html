@@ -11,23 +11,23 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Archivo Black', 'sans-serif'],
-                        mono: ['Space Mono', 'monospace'],
-                        body: ['Inter', 'sans-serif']
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        body: ['Inter', 'system-ui', 'sans-serif']
                     },
                     colors: {
                         'neo-white': '#ffffff',
-                        'neo-black': '#000000',
-                        'neo-yellow': '#FFDE00',
-                        'neo-blue': '#3B82F6',
-                        'neo-pink': '#FF6B6B',
-                        'neo-green': '#4ADE80',
-                        'neo-bg': '#f4f4f0',
+                        'neo-black': '#1f2937',
+                        'neo-yellow': '#fcd34d',
+                        'neo-blue': '#60a5fa',
+                        'neo-pink': '#f87171',
+                        'neo-green': '#86efac',
+                        'neo-bg': '#f8fafc',
                     },
                     boxShadow: {
-                        'neo': '5px 5px 0px 0px #000000',
-                        'neo-sm': '3px 3px 0px 0px #000000',
-                        'neo-lg': '8px 8px 0px 0px #000000',
+                        'neo': '3px 3px 0px 0px #d1d5db',
+                        'neo-sm': '2px 2px 0px 0px #d1d5db',
+                        'neo-lg': '4px 4px 0px 0px #d1d5db',
                     }
                 }
             }
@@ -35,32 +35,32 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet">
     <style>
         body {
-            background-color: #E0E7FF;
-            background-image: radial-gradient(#000000 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 32px 32px;
         }
 
         .neo-card {
-            transition: all 0.1s ease;
+            transition: all 0.15s ease;
         }
 
         .neo-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 7px 7px 0px 0px #000000;
+            transform: translateY(-2px);
+            box-shadow: 4px 4px 0px 0px #d1d5db;
         }
 
         .neo-card:active {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px 0px #000000;
+            transform: translateY(0);
+            box-shadow: 2px 2px 0px 0px #d1d5db;
         }
 
         .neo-button:active {
-            transform: translate(5px, 5px);
-            box-shadow: 0px 0px 0px 0px #000000;
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #d1d5db;
         }
 
         .marquee-container {
@@ -95,7 +95,7 @@
 <body class="font-body text-neo-black overflow-x-hidden selection:bg-neo-pink selection:text-white flex flex-col min-h-screen">
 
 <!-- Navigation -->
-<nav class="fixed w-full top-0 z-50 bg-neo-white border-b-4 border-neo-black px-4 py-3 md:px-8">
+<nav class="fixed w-full top-0 z-50 bg-neo-white border-b border-gray-200 px-4 py-3 md:px-8">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" onclick="navigateTo('home')" class="flex items-center gap-2 group">
             <div class="w-8 h-8 bg-neo-black group-hover:bg-neo-blue transition-colors"></div>
@@ -118,9 +118,9 @@
                     Legal <i class="fa-solid fa-caret-down text-xs"></i>
                 </button>
                 <div id="legal-menu"
-                     class="absolute right-0 top-full mt-1 w-48 bg-white border-4 border-neo-black shadow-neo hidden">
+                     class="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 shadow-neo rounded-lg hidden">
                     <a href="#terms" onclick="navigateTo('terms')"
-                       class="block px-4 py-2 hover:bg-neo-yellow border-b-2 border-neo-black">Terms of Service</a>
+                       class="block px-4 py-2 hover:bg-neo-yellow border-b border-gray-100 rounded-t-lg">Terms of Service</a>
                     <a href="#privacy" onclick="navigateTo('privacy')" class="block px-4 py-2 hover:bg-neo-green">Privacy
                         Policy</a>
                 </div>
@@ -141,7 +141,7 @@
 
     <!-- Mobile Menu Dropdown -->
     <div id="mobile-menu"
-         class="hidden absolute top-full left-0 w-full bg-neo-white border-b-4 border-neo-black p-4 flex flex-col gap-4 font-mono font-bold shadow-neo-lg">
+         class="hidden absolute top-full left-0 w-full bg-neo-white border-b border-gray-200 p-4 flex flex-col gap-4 font-mono font-bold shadow-neo-lg">
         <a href="#home" onclick="navigateTo('home', 'capabilities'); toggleMobileMenu(); return false;"
            class="block p-2 border-2 border-transparent hover:border-neo-black hover:bg-neo-yellow">Services</a>
         <a href="#home" onclick="navigateTo('home', 'process'); toggleMobileMenu(); return false;"
@@ -163,77 +163,60 @@
 <div id="view-home" class="view-section active pt-20">
     <!-- Hero Section -->
     <header class="relative py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-12 gap-8 items-center">
-            <div class="md:col-span-8 space-y-6">
-                <div class="inline-block bg-neo-yellow border-2 border-neo-black shadow-neo-sm px-4 py-1 font-mono font-bold text-xs md:text-sm uppercase transform -rotate-2">
+        <div class="max-w-3xl space-y-6">
+                <div class="inline-block bg-neo-yellow border border-gray-300 shadow-neo-sm px-4 py-1 font-mono font-bold text-xs md:text-sm uppercase transform -rotate-1 rounded">
                     Product Studio & Engineering
                 </div>
                 <h1 class="font-sans text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter">
                     SOFTWARE <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-pink"
-                          style="-webkit-text-stroke: 2px black;">THAT WORKS.</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neo-blue to-neo-pink">THAT WORKS.</span>
                 </h1>
-                <p class="font-mono text-lg md:text-xl max-w-2xl bg-white border-l-8 border-neo-black pl-4 py-2">
+                <p class="font-mono text-lg md:text-xl max-w-2xl bg-white border-l-4 border-neo-blue pl-4 py-2 rounded-r">
                     I build backends, platforms, and tools for companies that need things to actually work in
                     production. Mostly fintech, e-commerce, and data-heavy systems.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
                     <a href="#home" onclick="navigateTo('home', 'contact'); return false;"
-                       class="neo-button text-center bg-neo-black text-neo-white border-4 border-neo-black shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-800">
+                       class="neo-button text-center bg-neo-black text-neo-white border-2 border-gray-400 shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-700 rounded-lg">
                         Start A Project
                     </a>
                     <a href="#home" onclick="navigateTo('home', 'capabilities'); return false;"
-                       class="neo-button text-center bg-white text-neo-black border-4 border-neo-black shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-50">
+                       class="neo-button text-center bg-white text-neo-black border-2 border-gray-300 shadow-neo px-8 py-4 font-sans text-xl hover:bg-gray-50 rounded-lg">
                         See Services
                     </a>
                 </div>
-            </div>
-
-            <!-- Abstract Visual -->
-            <div class="md:col-span-4 hidden md:block relative h-80">
-                <div class="absolute inset-0 bg-neo-blue border-4 border-neo-black shadow-neo-lg transform rotate-3"></div>
-                <div class="absolute inset-0 bg-neo-pink border-4 border-neo-black shadow-neo-lg transform -rotate-3 opacity-80"></div>
-                <div class="absolute inset-0 bg-white border-4 border-neo-black flex items-center justify-center z-10">
-                    <div class="text-center space-y-2">
-                        <i class="fa-solid fa-bolt text-6xl text-neo-yellow"
-                           style="-webkit-text-stroke: 2px black; text-stroke: 2px black;"></i>
-                        <div class="font-mono font-bold text-2xl">EST. 2025</div>
-                        <div class="font-mono text-sm px-4">SHERIDAN, WY</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 
     <!-- Stats Bar -->
-    <section class="border-y-4 border-neo-black bg-neo-white overflow-hidden py-4">
+    <section class="border-y border-gray-200 bg-neo-white overflow-hidden py-6">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 font-mono">
-            <div class="flex items-center gap-4 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-neo-black pb-4 md:pb-0">
-                <span class="text-4xl font-sans text-neo-blue" style="-webkit-text-stroke: 1px black;">~6</span>
+            <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r border-gray-200 pb-4 md:pb-0">
+                <span class="text-4xl font-sans text-neo-blue">~6</span>
                 <div>
-                    <div class="font-bold uppercase">Weeks</div>
-                    <div class="text-xs text-gray-600">Typical time to first release</div>
+                    <div class="font-bold uppercase text-gray-700">Weeks</div>
+                    <div class="text-xs text-gray-500">Typical time to first release</div>
                 </div>
             </div>
-            <div class="flex items-center gap-4 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-neo-black pb-4 md:pb-0">
-                <span class="text-4xl font-sans text-neo-pink" style="-webkit-text-stroke: 1px black;">18+</span>
+            <div class="flex items-center gap-4 border-b md:border-b-0 md:border-r border-gray-200 pb-4 md:pb-0">
+                <span class="text-4xl font-sans text-neo-pink">18+</span>
                 <div>
-                    <div class="font-bold uppercase">Years</div>
-                    <div class="text-xs text-gray-600">Writing production code</div>
+                    <div class="font-bold uppercase text-gray-700">Years</div>
+                    <div class="text-xs text-gray-500">Writing production code</div>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <span class="text-4xl font-sans text-neo-yellow" style="-webkit-text-stroke: 1px black;">48hr</span>
+                <span class="text-4xl font-sans text-neo-yellow">48hr</span>
                 <div>
-                    <div class="font-bold uppercase">Response</div>
-                    <div class="text-xs text-gray-600">Usually faster</div>
+                    <div class="font-bold uppercase text-gray-700">Response</div>
+                    <div class="text-xs text-gray-500">Usually faster</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Marquee -->
-    <div class="bg-neo-black text-neo-white py-3 border-b-4 border-neo-black font-mono font-bold uppercase text-lg overflow-hidden">
+    <div class="bg-gray-800 text-gray-300 py-3 font-mono font-bold uppercase text-sm overflow-hidden">
         <div class="marquee-container">
             <div class="marquee-content">
                 Go • Java • Scala • Kotlin • TypeScript • PostgreSQL • Kafka • Kubernetes • AWS • GCP •
@@ -244,18 +227,18 @@
 
     <!-- Venture Studio / Own Products Section -->
     <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div class="bg-neo-black text-neo-white border-4 border-neo-blue shadow-neo p-8 md:p-12 relative overflow-hidden">
+        <div class="bg-gray-800 text-neo-white border border-gray-600 shadow-neo p-8 md:p-12 relative overflow-hidden rounded-2xl">
             <!-- decorative background element -->
-            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-neo-pink rounded-full mix-blend-exclusion opacity-50"></div>
+            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-neo-pink rounded-full mix-blend-exclusion opacity-30"></div>
 
             <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="inline-block bg-neo-pink text-black border-2 border-white px-3 py-1 font-mono font-bold text-xs uppercase mb-4 transform -rotate-1">
+                    <div class="inline-block bg-neo-pink text-gray-800 border border-gray-500 px-3 py-1 font-mono font-bold text-xs uppercase mb-4 rounded">
                         How I work
                     </div>
                     <h2 class="font-sans text-4xl md:text-5xl uppercase mb-6 leading-tight">
                         I also run <br>
-                        <span class="text-neo-yellow" style="-webkit-text-stroke: 1px white;">my own products.</span>
+                        <span class="text-neo-yellow">my own products.</span>
                     </h2>
                     <p class="font-mono text-lg text-gray-300 mb-6">
                         Frostwood Labs is a one-person studio. Beyond client work, I build and operate my own SaaS
@@ -292,23 +275,23 @@
 
     <!-- Projects Section -->
     <section id="projects" class="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 border-l-8 border-neo-pink pl-6">
+        <div class="mb-12 border-l-4 border-neo-pink pl-6">
             <h2 class="font-sans text-4xl md:text-6xl uppercase mb-2">Projects</h2>
-            <p class="font-mono text-lg">Products I've built and operate.</p>
+            <p class="font-mono text-lg text-gray-600">Products I've built and operate.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <a href="https://callerbooth.com" target="_blank" rel="noopener"
-               class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+               class="bg-white border border-gray-200 shadow-neo p-6 flex flex-col justify-between neo-card group rounded-xl">
                 <div>
                     <div class="w-12 h-12 mb-4 flex items-center justify-center">
                         <img src="callerbooth-logo.svg" alt="CallerBooth" class="w-full h-full object-contain">
                     </div>
                     <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">CallerBooth</h3>
-                    <p class="font-mono text-sm leading-relaxed">Browser-first VoIP with smart voicemail and AI transcription.</p>
+                    <p class="font-mono text-sm leading-relaxed text-gray-600">Browser-first VoIP with smart voicemail and AI transcription.</p>
                 </div>
-                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black flex items-center justify-between">
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">SaaS</span>
+                <div class="mt-6 pt-4 border-t border-gray-200 flex items-center justify-between">
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded">SaaS</span>
                     <span class="text-xs font-mono text-neo-blue group-hover:translate-x-1 transition-transform">callerbooth.com →</span>
                 </div>
             </a>
@@ -317,89 +300,89 @@
 
     <!-- Services / Focus Areas -->
     <section id="capabilities" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
-        <div class="mb-12 border-l-8 border-neo-blue pl-6">
+        <div class="mb-12 border-l-4 border-neo-blue pl-6">
             <h2 class="font-sans text-4xl md:text-6xl uppercase mb-2">What I Do</h2>
-            <p class="font-mono text-lg">The areas where I have the most experience and can be most useful.</p>
+            <p class="font-mono text-lg text-gray-600">The areas where I have the most experience and can be most useful.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards (Same as before) -->
-            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards -->
+            <div class="bg-white border border-gray-200 shadow-neo p-6 flex flex-col justify-between neo-card group rounded-xl">
                 <div>
-                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-yellow group-hover:text-black transition-colors">
+                    <div class="bg-gray-700 text-white w-10 h-10 flex items-center justify-center font-mono font-bold text-lg mb-4 group-hover:bg-neo-yellow group-hover:text-gray-800 transition-colors rounded-lg">
                         01
                     </div>
-                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Backend Systems</h3>
-                    <p class="font-mono text-sm leading-relaxed">APIs, event-driven architectures, and data pipelines. I
+                    <h3 class="font-sans text-xl uppercase mb-3 leading-tight">Backend Systems</h3>
+                    <p class="font-mono text-sm leading-relaxed text-gray-600">APIs, event-driven architectures, and data pipelines. I
                         focus on systems that need to handle real load and stay maintainable over time.</p>
                 </div>
-                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Backend</span>
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">API</span>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded">Backend</span>
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded ml-1">API</span>
                 </div>
             </div>
-            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+            <div class="bg-white border border-gray-200 shadow-neo p-6 flex flex-col justify-between neo-card group rounded-xl">
                 <div>
-                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-pink group-hover:text-black transition-colors">
+                    <div class="bg-gray-700 text-white w-10 h-10 flex items-center justify-center font-mono font-bold text-lg mb-4 group-hover:bg-neo-pink group-hover:text-gray-800 transition-colors rounded-lg">
                         02
                     </div>
-                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Web Applications</h3>
-                    <p class="font-mono text-sm leading-relaxed">Full-stack development when needed. Clean interfaces
+                    <h3 class="font-sans text-xl uppercase mb-3 leading-tight">Web Applications</h3>
+                    <p class="font-mono text-sm leading-relaxed text-gray-600">Full-stack development when needed. Clean interfaces
                         that work well and don't frustrate users.</p>
                 </div>
-                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Frontend</span>
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Full-stack</span>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded">Frontend</span>
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded ml-1">Full-stack</span>
                 </div>
             </div>
-            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+            <div class="bg-white border border-gray-200 shadow-neo p-6 flex flex-col justify-between neo-card group rounded-xl">
                 <div>
-                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-blue group-hover:text-white transition-colors">
+                    <div class="bg-gray-700 text-white w-10 h-10 flex items-center justify-center font-mono font-bold text-lg mb-4 group-hover:bg-neo-blue transition-colors rounded-lg">
                         03
                     </div>
-                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Mobile Apps</h3>
-                    <p class="font-mono text-sm leading-relaxed">iOS and Android development. Cross-platform when it
+                    <h3 class="font-sans text-xl uppercase mb-3 leading-tight">Mobile Apps</h3>
+                    <p class="font-mono text-sm leading-relaxed text-gray-600">iOS and Android development. Cross-platform when it
                         makes sense, native when it matters.</p>
                 </div>
-                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">iOS</span>
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Android</span>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded">iOS</span>
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded ml-1">Android</span>
                 </div>
             </div>
-            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+            <div class="bg-white border border-gray-200 shadow-neo p-6 flex flex-col justify-between neo-card group rounded-xl">
                 <div>
-                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-green group-hover:text-black transition-colors">
+                    <div class="bg-gray-700 text-white w-10 h-10 flex items-center justify-center font-mono font-bold text-lg mb-4 group-hover:bg-neo-green group-hover:text-gray-800 transition-colors rounded-lg">
                         04
                     </div>
-                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Data & Infrastructure</h3>
-                    <p class="font-mono text-sm leading-relaxed">Cloud infrastructure, data pipelines, observability.
+                    <h3 class="font-sans text-xl uppercase mb-3 leading-tight">Data & Infrastructure</h3>
+                    <p class="font-mono text-sm leading-relaxed text-gray-600">Cloud infrastructure, data pipelines, observability.
                         The unglamorous work that keeps everything running.</p>
                 </div>
-                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">DevOps</span>
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Data</span>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded">DevOps</span>
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded ml-1">Data</span>
                 </div>
             </div>
-            <div class="bg-white border-4 border-neo-black shadow-neo p-6 flex flex-col justify-between neo-card group">
+            <div class="bg-white border border-gray-200 shadow-neo p-6 flex flex-col justify-between neo-card group rounded-xl">
                 <div>
-                    <div class="bg-neo-black text-white w-12 h-12 flex items-center justify-center font-mono font-bold text-xl mb-4 group-hover:bg-neo-yellow group-hover:text-black transition-colors">
+                    <div class="bg-gray-700 text-white w-10 h-10 flex items-center justify-center font-mono font-bold text-lg mb-4 group-hover:bg-neo-yellow group-hover:text-gray-800 transition-colors rounded-lg">
                         05
                     </div>
-                    <h3 class="font-sans text-2xl uppercase mb-3 leading-tight">Technical Consulting</h3>
-                    <p class="font-mono text-sm leading-relaxed">Architecture reviews, due diligence, helping teams get
+                    <h3 class="font-sans text-xl uppercase mb-3 leading-tight">Technical Consulting</h3>
+                    <p class="font-mono text-sm leading-relaxed text-gray-600">Architecture reviews, due diligence, helping teams get
                         unstuck. Sometimes an outside perspective helps.</p>
                 </div>
-                <div class="mt-6 pt-4 border-t-2 border-dashed border-neo-black">
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Consulting</span>
-                    <span class="text-xs font-bold bg-gray-200 px-2 py-1">Architecture</span>
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded">Consulting</span>
+                    <span class="text-xs font-bold bg-gray-100 px-2 py-1 rounded ml-1">Architecture</span>
                 </div>
             </div>
-            <div class="bg-neo-yellow border-4 border-neo-black shadow-neo p-6 flex flex-col justify-center items-center text-center neo-card">
-                <h3 class="font-sans text-3xl uppercase mb-4">Something else?</h3>
-                <p class="font-mono text-sm mb-6">If your project doesn't fit neatly into these categories, let's talk
+            <div class="bg-neo-yellow border border-gray-300 shadow-neo p-6 flex flex-col justify-center items-center text-center neo-card rounded-xl">
+                <h3 class="font-sans text-2xl uppercase mb-4">Something else?</h3>
+                <p class="font-mono text-sm mb-6 text-gray-700">If your project doesn't fit neatly into these categories, let's talk
                     anyway. I'm happy to discuss whether I can help.</p>
                 <a href="#home" onclick="navigateTo('home', 'contact'); return false;"
-                   class="w-full bg-neo-black text-white font-bold py-3 hover:bg-white hover:text-black border-2 border-transparent hover:border-neo-black transition-colors uppercase">
+                   class="w-full bg-gray-800 text-white font-bold py-3 hover:bg-gray-700 transition-colors uppercase rounded-lg">
                     Contact Me
                 </a>
             </div>
@@ -407,30 +390,29 @@
     </section>
 
     <!-- Process Section -->
-    <section id="process" class="bg-neo-black text-neo-white py-20 border-y-4 border-white">
+    <section id="process" class="bg-gray-800 text-neo-white py-20">
         <div class="max-w-7xl mx-auto px-4 md:px-8">
-            <h2 class="font-sans text-4xl md:text-6xl uppercase mb-12 text-center text-neo-yellow"
-                style="-webkit-text-stroke: 1px white;">How Projects Work</h2>
+            <h2 class="font-sans text-4xl md:text-5xl uppercase mb-12 text-center text-neo-yellow">How Projects Work</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-4 border-white">
-                <div class="p-8 border-b-4 md:border-b-0 md:border-r-4 border-white hover:bg-gray-900 transition-colors">
-                    <div class="text-neo-pink font-sans text-6xl mb-4">01</div>
-                    <h3 class="text-2xl font-bold font-mono uppercase mb-2">Understanding</h3>
-                    <div class="text-sm font-mono bg-neo-pink text-black inline-block px-2 mb-4">Week 1–2</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 bg-gray-700/50 hover:bg-gray-700 transition-colors rounded-xl">
+                    <div class="text-neo-pink font-sans text-5xl mb-4">01</div>
+                    <h3 class="text-xl font-bold font-mono uppercase mb-2">Understanding</h3>
+                    <div class="text-sm font-mono bg-neo-pink text-gray-800 inline-block px-2 mb-4 rounded">Week 1–2</div>
                     <p class="font-mono text-gray-300">We talk through what you're trying to build, what constraints
                         matter, and what success looks like. I put together a concrete plan.</p>
                 </div>
-                <div class="p-8 border-b-4 md:border-b-0 md:border-r-4 border-white hover:bg-gray-900 transition-colors">
-                    <div class="text-neo-blue font-sans text-6xl mb-4">02</div>
-                    <h3 class="text-2xl font-bold font-mono uppercase mb-2">Building</h3>
-                    <div class="text-sm font-mono bg-neo-blue text-black inline-block px-2 mb-4">Weeks 2–6</div>
+                <div class="p-8 bg-gray-700/50 hover:bg-gray-700 transition-colors rounded-xl">
+                    <div class="text-neo-blue font-sans text-5xl mb-4">02</div>
+                    <h3 class="text-xl font-bold font-mono uppercase mb-2">Building</h3>
+                    <div class="text-sm font-mono bg-neo-blue text-gray-800 inline-block px-2 mb-4 rounded">Weeks 2–6</div>
                     <p class="font-mono text-gray-300">I work iteratively - you'll see progress regularly, not just at the
                         end. I prefer to get something working early and refine from there.</p>
                 </div>
-                <div class="p-8 hover:bg-gray-900 transition-colors">
-                    <div class="text-neo-green font-sans text-6xl mb-4">03</div>
-                    <h3 class="text-2xl font-bold font-mono uppercase mb-2">Delivery</h3>
-                    <div class="text-sm font-mono bg-neo-green text-black inline-block px-2 mb-4">Week 6+</div>
+                <div class="p-8 bg-gray-700/50 hover:bg-gray-700 transition-colors rounded-xl">
+                    <div class="text-neo-green font-sans text-5xl mb-4">03</div>
+                    <h3 class="text-xl font-bold font-mono uppercase mb-2">Delivery</h3>
+                    <div class="text-sm font-mono bg-neo-green text-gray-800 inline-block px-2 mb-4 rounded">Week 6+</div>
                     <p class="font-mono text-gray-300">You get working software, documentation, and whatever handoff
                         makes sense. I can stick around for ongoing work or help your team take over.</p>
                 </div>
@@ -440,25 +422,25 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4 md:px-8 max-w-5xl mx-auto">
-        <div class="bg-white border-4 border-neo-black shadow-neo-lg p-8 md:p-12 text-center">
+        <div class="bg-white border border-gray-200 shadow-neo-lg p-8 md:p-12 text-center rounded-2xl">
             <div class="max-w-3xl mx-auto">
                 <h2 class="font-sans text-4xl md:text-5xl uppercase mb-6 leading-none">
-                    Have a <br> <span class="bg-neo-yellow px-2">project in mind?</span>
+                    Have a <br> <span class="bg-neo-yellow px-2 rounded">project in mind?</span>
                 </h2>
-                <p class="font-mono text-lg mb-10">
+                <p class="font-mono text-lg mb-10 text-gray-600">
                     Tell me what you're working on. I typically respond within a day.
                 </p>
 
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 font-mono">
                     <a href="mailto:hello@frostwoodlabs.com"
                        class="flex items-center gap-3 text-lg hover:text-neo-blue group">
-                        <div class="w-12 h-12 border-2 border-neo-black bg-neo-pink flex items-center justify-center text-white shadow-neo-sm group-hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 border border-gray-200 bg-neo-pink flex items-center justify-center text-white shadow-neo-sm group-hover:-translate-y-1 transition-transform rounded-xl">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <span class="break-all font-bold">hello@frostwoodlabs.com</span>
                     </a>
                     <a href="tel:+13074522403" class="flex items-center gap-3 text-lg hover:text-neo-green group">
-                        <div class="w-12 h-12 border-2 border-neo-black bg-neo-blue flex items-center justify-center text-white shadow-neo-sm group-hover:-translate-y-1 transition-transform">
+                        <div class="w-12 h-12 border border-gray-200 bg-neo-blue flex items-center justify-center text-white shadow-neo-sm group-hover:-translate-y-1 transition-transform rounded-xl">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <span class="font-bold">+1 (307) 452-2403</span>
@@ -840,7 +822,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="bg-neo-white border-t-4 border-neo-black pt-12 pb-6 px-4 mt-auto">
+<footer class="bg-neo-white border-t border-gray-200 pt-12 pb-6 px-4 mt-auto">
     <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-12 font-mono">
         <div class="col-span-2">
             <div class="font-sans text-2xl uppercase mb-4">Frostwood Labs, LLC</div>
