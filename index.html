@@ -915,7 +915,7 @@
     }
 
     // SPA Logic
-    function navigateTo(viewId, sectionId = null) {
+    function navigateTo(viewId, sectionId = null, pushState = true) {
         // Hide all sections
         document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
 
@@ -935,7 +935,26 @@
                 }
             }, 50);
         }
+
+        // Update browser history
+        if (pushState) {
+            const hash = viewId === 'home' ? '' : '#' + viewId;
+            history.pushState({ view: viewId }, '', hash || window.location.pathname);
+        }
     }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.view) {
+            navigateTo(event.state.view, null, false);
+        } else {
+            const hash = window.location.hash.replace('#', '');
+            if (hash === 'terms') navigateTo('terms', null, false);
+            else if (hash === 'privacy') navigateTo('privacy', null, false);
+            else if (hash === 'about') navigateTo('about', null, false);
+            else navigateTo('home', null, false);
+        }
+    });
 
     function toggleMobileMenu() {
         document.getElementById('mobile-menu').classList.toggle('hidden');
